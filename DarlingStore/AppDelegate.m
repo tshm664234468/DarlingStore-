@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "CustomerTabBar.h"
 
 @interface AppDelegate ()
 
@@ -16,8 +17,26 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+   
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
+    
+    CustomerTabBar*tabBar=[[CustomerTabBar alloc]init];
+    self.window.rootViewController=tabBar;
+    
+    [tabBar release];
+    
+    
+    
+    
     return YES;
+}
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+
+    [self.window  endEditing:YES];
+
+
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
